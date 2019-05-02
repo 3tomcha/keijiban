@@ -21,4 +21,4 @@ Route::get('/room', function () {
 
 Route::get('/room/1', function () {
     return view('show');
-});
+})->middleware('auth.basic');
