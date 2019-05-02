@@ -19,6 +19,15 @@ Route::get('/room', function () {
     return view('room');
 });
 
+Route::get('/room/new', function () {
+  // die("部屋の新規作成");
+    return view('new');
+});
+
 Route::get('/room/1', function () {
     return view('show');
 })->middleware('auth.basic');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
