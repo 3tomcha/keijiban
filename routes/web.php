@@ -15,16 +15,19 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/room', function () {
+Route::get('rooms/', function () {
     return view('room');
 });
 
-Route::get('/room/new', function () {
-  // die("部屋の新規作成");
-    return view('new');
+Route::get('/rooms/create', function () {
+    return view('create');
 });
 
-Route::get('/room/1', function () {
+Route::post('rooms/', 'RoomController@store');
+Route::get('rooms/{id}', 'RoomController@show');
+
+
+Route::get('/rooms/1', function () {
     return view('show');
 })->middleware('auth.basic');
 
