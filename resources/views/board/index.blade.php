@@ -8,15 +8,10 @@
     <div class="col-md-8 mx-auto" style="height:6rem;margin-top:2rem;">
       <h1>{{$room->title}}</h1>
     </div>
-    <div class="col-md-8 bg-secondary mx-auto" style="height:6rem;margin-top:2rem;">
-      1.<br>
-      2019年4月17日<br>
-      欅坂の平手ちゃん可愛い
-    </div>
     @isset($boards)
       @foreach($boards as $board)
       <div class="col-md-8 bg-secondary mx-auto" style="height:6rem;margin-top:2rem;">
-        1.<br>
+        {{$id++}}<br>
         {{$board->updatedAt}}<br>
         {{$board->message}}
       </div>

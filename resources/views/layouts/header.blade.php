@@ -11,7 +11,7 @@
 <body>
   <header class="bg-white">
     <div class="navbar navbar-light container mx-auto">
-      <img src="/img/logo.png">
+      <a href="/"><img src="/img/logo.png"></a>
       <div class="justyfy-content-end">
         <a href="/rooms/create">ルームを新しく作る</a>
       </div>
