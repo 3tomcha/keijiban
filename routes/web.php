@@ -27,9 +27,9 @@ Route::post('rooms/', 'RoomController@store');
 Route::get('rooms/{id}', 'RoomController@show');
 
 
-Route::get('/rooms/1', function () {
-    return view('show');
-})->middleware('auth.basic');
+// Route::get('/rooms/1', function () {
+//     return view('show');
+// })->middleware('auth.basic');
 
 Auth::routes();
 
