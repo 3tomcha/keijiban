@@ -28,8 +28,8 @@ Route::get('/rooms/create', function () {
 
 Route::post('rooms/', 'RoomController@store');
 Route::get('rooms/{id}', 'RoomController@show');
-Route::post('rooms/{id}/board', 'BoardController@index');
-Route::post('rooms/{id}/board/store', 'BoardController@store');
+Route::post('rooms/{id}/board/login', 'BoardController@index');
+Route::post('rooms/{id}/board/', 'BoardController@store');
 
 
 // Route::get('/rooms/1', function () {

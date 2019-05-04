@@ -13,9 +13,21 @@
       2019年4月17日<br>
       欅坂の平手ちゃん可愛い
     </div>
+    @isset($boards)
+      @foreach($boards as $board)
+      <div class="col-md-8 bg-secondary mx-auto" style="height:6rem;margin-top:2rem;">
+        1.<br>
+        {{$board->updatedAt}}<br>
+        {{$board->message}}
+      </div>
+      @endforeach
+    @endisset
     <div class="col-md-8 bg-secondary mx-auto" style="height:6rem;margin-top:2rem;">
-      <form class="" action="index.html" method="post">
-        <input type="text" name="" value="" style="width:100%;height:100%" placeholder="書き込む">
+      <form class="" action="/rooms/{{$room->id}}/board/" method="post">
+        @csrf
+        <input type="text" name="message" value="" style="width:100%;height:100%" placeholder="書き込む">
+        <input type="hidden" name="id" value="{{$room->id}}">
+        <input type="submit" name="" value="送信する">
       </form>
     </div>
   </div>
