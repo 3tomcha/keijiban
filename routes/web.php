@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/', 'RoomController@index');
+
 
 Route::get('rooms/', function () {
     return view('room');
@@ -25,6 +28,7 @@ Route::get('/rooms/create', function () {
 
 Route::post('rooms/', 'RoomController@store');
 Route::get('rooms/{id}', 'RoomController@show');
+Route::post('rooms/{id}/board', 'BoardController@index');
 
 
 // Route::get('/rooms/1', function () {

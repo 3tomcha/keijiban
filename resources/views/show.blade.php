@@ -7,7 +7,11 @@
     <div class="col-md-8 mx-auto" style="height:6rem;margin-top:2rem;">
       <h1>{{$room->title}}</h1>
       {{$room->body}}
-      <a href="/room/1"><button type="button" name="button">入室する</button></a>
+      <form class="" action="/rooms/{{$room->id}}/board" method="post">
+        @csrf
+        <input type="password" name="password" value="" placeholder="password">
+        <input type="submit" name="" value="送信する">
+      </form>
     </div>
   </div>
 </div>

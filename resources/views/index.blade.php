@@ -1,25 +1,15 @@
 @include('layouts/header')
 <div class="wrapper mx-auto bg-white">
-<input type="text" name="" value="" placeholder="検索ボックス">
+  <input type="text" name="" value="" placeholder="検索ボックス">
   <div class="row">
-    <div class="col-md-8 mx-auto" style="height:6rem;margin-top:2rem;">
-      <h1>欅坂46の平手ちゃんが可愛い件について</h1>
-    </div>
-    <div class="col-md-8 mx-auto" style="height:6rem;margin-top:2rem;">
-      <h1>欅坂46の平手ちゃんが可愛い件について</h1>
-    </div>
-    <div class="col-md-8 mx-auto" style="height:6rem;margin-top:2rem;">
-      <h1>欅坂46の平手ちゃんが可愛い件について</h1>
-    </div>
-    <div class="col-md-8 mx-auto" style="height:6rem;margin-top:2rem;">
-      <h1>欅坂46の平手ちゃんが可愛い件について</h1>
-    </div>
-    <div class="col-md-8 mx-auto" style="height:6rem;margin-top:2rem;">
-      <h1>欅坂46の平手ちゃんが可愛い件について</h1>
-    </div>
-    <div class="col-md-8 mx-auto" style="height:6rem;margin-top:2rem;">
-      <h1>欅坂46の平手ちゃんが可愛い件について</h1>
-    </div>
+    @foreach ($rooms as $room)
+      <div class="col-md-8 mx-auto" style="height:6rem;margin-top:2rem;">
+        <a href="/rooms/{{$room->id}}">
+        <h1>{{$room->title}}</h1><br>
+        {{$room->body}}
+        </a>
+      </div>
+    @endforeach
   </div>
 </div>
 </div>

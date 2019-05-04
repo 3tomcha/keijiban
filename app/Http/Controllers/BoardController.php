@@ -5,17 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Room;
 
-class RoomController extends Controller
+class BoardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,$id)
     {
-        // die(Room::all());
-        return view('index',['rooms' => Room::all()]);
+        if ($request->input('password') !== Room::find($id)->password) {
+          die("aaa");
+        }
+        return view('board.index');
     }
 
     /**
@@ -36,15 +38,7 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        $room = new Room();
-        $room->title = $request->input('title');
-        $room->body = $request->input('body');
-        $room->password = $request->input('password');
-        $room->save();
-
-        $id = Room::where('password',$room->password)->first()->id;
-        return redirect('/rooms/'.$id);
+        //
     }
 
     /**
@@ -55,7 +49,7 @@ class RoomController extends Controller
      */
     public function show($id)
     {
-        return view('show', ['room' => Room::find($id)]);
+        //
     }
 
     /**
