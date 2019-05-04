@@ -1,5 +1,14 @@
 @include('layouts/header')
 <h1>ルーム新規作成ページ</h1>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form class="" action="/rooms/" method="post">
   @csrf
 部屋のタイトル<input type="text" name="title" value=""><br>
