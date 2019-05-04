@@ -17,7 +17,7 @@ class BoardController extends Controller
         if ($request->input('password') !== Room::find($id)->password) {
           die("aaa");
         }
-        return view('board.index');
+        return view('board.index', ["room" => Room::find($id)]);
     }
 
     /**
