@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Room;
+use App\Board;
 
 class BoardController extends Controller
 {
@@ -17,7 +18,7 @@ class BoardController extends Controller
         if ($request->input('password') !== Room::find($id)->password) {
           die("aaa");
         }
-        return view('board.index');
+        return view('board.index', ["room" => Room::find($id), "boards" => Board::all()]);
     }
 
     /**
@@ -38,7 +39,11 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // dd($request);
+      $board = new Board;
+      $board->message = $request->input('message');
+      $board->save();
+      return view('board.index', ["room" => Room::find($request->input('id')), "boards" => Board::all()]);
     }
 
     /**
