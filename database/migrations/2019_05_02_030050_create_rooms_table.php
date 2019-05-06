@@ -17,8 +17,8 @@ class CreateRoomsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('body');
-            $table->string('password');
-            $table->timestamps();
+            $table->string('password')->unique();
+            $table->nullableTimestamps();
         });
     }
 

@@ -1,5 +1,4 @@
 @include('layouts/header')
-<a href="/">トップに戻る</a>
 <div class="wrapper mx-auto bg-white">
 
   <div class="row">

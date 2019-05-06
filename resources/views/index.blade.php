@@ -1,6 +1,12 @@
 @include('layouts/header')
 <div class="wrapper mx-auto bg-white">
-  <input type="text" name="" value="" placeholder="検索ボックス">
+  <div class="d-flex justify-content-end">
+    <form class="" action="/search" method="get">
+      @csrf
+        <input type="text" name="search" value="" placeholder="検索ボックス">
+        <input type="submit" name="" value="検索する">
+    </form>
+  </div>
   <div class="row">
     @foreach ($rooms as $room)
       <div class="col-md-8 mx-auto" style="height:6rem;margin-top:2rem;">
@@ -11,7 +17,6 @@
       </div>
     @endforeach
   </div>
-</div>
 </div>
 <style>
 .wrapper{

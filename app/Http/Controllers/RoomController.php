@@ -14,7 +14,6 @@ class RoomController extends Controller
      */
     public function index()
     {
-        // die(Room::all());
         return view('index',['rooms' => Room::all()]);
     }
 
@@ -37,14 +36,20 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         // dd($request);
+        $validated = $request->validate([
+          'title' => 'required',
+          'body' => 'required',
+          'password' => 'required|unique:rooms',
+        ]);
         $room = new Room();
-        $room->title = $request->input('title');
-        $room->body = $request->input('body');
-        $room->password = $request->input('password');
+        $room->title = $validated['title'];
+        $room->body = $validated['body'];
+        $room->password = $validated['password'];
         $room->save();
 
         $id = Room::where('password',$room->password)->first()->id;
-        return redirect('/rooms/'.$id);
+        // return redirect('/rooms/'.$id);
+        return redirect('/');
     }
 
     /**
