@@ -1,7 +1,11 @@
 @include('layouts/header')
 <div class="wrapper mx-auto bg-white">
   <div class="d-flex justify-content-end">
-      <input type="text" name="" value="" placeholder="検索ボックス">
+    <form class="" action="/search" method="get">
+      @csrf
+        <input type="text" name="search" value="" placeholder="検索ボックス">
+        <input type="submit" name="" value="検索する">
+    </form>
   </div>
   <div class="row">
     @foreach ($rooms as $room)

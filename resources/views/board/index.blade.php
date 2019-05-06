@@ -1,6 +1,4 @@
 @include('layouts/header')
-
-<a href="/">トップに戻る</a>
 <div class="wrapper mx-auto bg-white">
 
   <div class="row">
@@ -12,8 +10,8 @@
       @foreach($boards as $board)
       <div class="col-md-8 bg-secondary mx-auto" style="height:6rem;margin-top:2rem;">
         {{$id++}}<br>
-        {{$board->updatedAt}}<br>
-        {{$board->message}}
+        {{$board->created_at}}<br>
+        <?php echo $board->message; ?>
       </div>
       @endforeach
     @endisset

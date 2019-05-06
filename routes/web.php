@@ -11,12 +11,8 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-
 Route::get('/', 'RoomController@index');
-
+Route::get('/search', 'SearchController');
 
 Route::get('rooms/', function () {
     return view('room');
@@ -30,11 +26,6 @@ Route::post('rooms/', 'RoomController@store');
 Route::get('rooms/{id}', 'RoomController@show');
 Route::post('rooms/{id}/board/login', 'BoardController@index');
 Route::post('rooms/{id}/board/', 'BoardController@store');
-
-
-// Route::get('/rooms/1', function () {
-//     return view('show');
-// })->middleware('auth.basic');
 
 Auth::routes();
 

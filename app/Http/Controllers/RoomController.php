@@ -14,7 +14,6 @@ class RoomController extends Controller
      */
     public function index()
     {
-        // die(Room::all());
         return view('index',['rooms' => Room::all()]);
     }
 
