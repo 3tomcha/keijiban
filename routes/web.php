@@ -18,11 +18,8 @@ Route::get('rooms/', function () {
     return view('room');
 });
 
-Route::get('/rooms/create', function () {
-    return view('create');
-});
-
 Route::post('rooms/', 'RoomController@store');
+Route::get('rooms/create', 'RoomController@create');
 Route::get('rooms/{id}', 'RoomController@show');
 Route::post('rooms/{id}/board/login', 'BoardController@index');
 Route::post('rooms/{id}/board/', 'BoardController@store');
