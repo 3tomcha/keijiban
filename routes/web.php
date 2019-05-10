@@ -14,19 +14,11 @@
 Route::get('/', 'RoomController@index');
 Route::get('/search', 'SearchController');
 
-Route::get('rooms/', function () {
-    return view('room');
-});
+Route::resource('rooms','RoomController')->only([
+  'store','create','show'
+]);
 
-Route::get('/rooms/create', function () {
-    return view('create');
-});
-
-Route::post('rooms/', 'RoomController@store');
-Route::get('rooms/{id}', 'RoomController@show');
 Route::post('rooms/{id}/board/login', 'BoardController@index');
 Route::post('rooms/{id}/board/', 'BoardController@store');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

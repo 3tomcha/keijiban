@@ -24,7 +24,7 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -44,7 +44,7 @@ class RoomController extends Controller
         $room = new Room();
         $room->title = $validated['title'];
         $room->body = $validated['body'];
-        $room->password = $validated['password'];
+        $room->password = encrypt($validated['password']);
         $room->save();
 
         $id = Room::where('password',$room->password)->first()->id;

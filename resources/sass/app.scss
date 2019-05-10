@@ -2,6 +2,8 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+$secondary:     #bebebe !default;
+
 // Variables
 @import 'variables';
 
@@ -11,4 +13,23 @@
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+body{
+  background-color: white;
+}
+
+textarea{
+  height: 8rem;
+}
+
+a{
+  color: black;
+}
+
+a:hover{
+  color: black;
+}
+
+.wrapper{
+  max-width: 1200px;
 }
