@@ -1,4 +1,5 @@
-@include('layouts/header')
+@extends('layouts.app')
+@section('content')
 <div class="wrapper mx-auto bg-white board-index">
 
   <div class="row">
@@ -8,14 +9,14 @@
     </div>
     @isset($boards)
       @foreach($boards as $board)
-      <div class="bg-secondary mx-auto mt-4 p-2">
+      <div class="border mx-auto mt-4 p-2">
         {{$id++}}<br>
         {{$board->created_at}}<br>
         <?php echo $board->message; ?>
       </div>
       @endforeach
     @endisset
-    <div class="bg-secondary mx-auto mt-5 p-2 d-flex">
+    <div class="border mx-auto mt-5 p-2 d-flex">
       <form class="flex-fill" action="/rooms/{{$room->id}}/board/" method="post">
         @csrf
         <input type="hidden" name="id" value="{{$room->id}}">
@@ -33,3 +34,4 @@
 </style>
 </body>
 </html>
+@endsection

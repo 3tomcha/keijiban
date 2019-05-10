@@ -1,4 +1,5 @@
-@include('layouts/header')
+@extends('layouts.app')
+@section('content')
 <div class="wrapper mx-auto bg-white">
   <div class="d-flex justify-content-end">
     <form class="" action="/search" method="get">
@@ -9,7 +10,7 @@
   </div>
   <div class="row">
     @foreach ($rooms as $room)
-    <div class="col-md-8 mx-auto mt-4">
+    <div class="col-md-8 mx-auto mt-4 card py-4">
       <a href="/rooms/{{$room->id}}">
         <h1>{{$room->title}}</h1><br>
         {{$room->body}}
@@ -19,9 +20,5 @@
   </div>
 </div>
 <style>
-.wrapper{
-  max-width: 1200px;
-}
 </style>
-</body>
-</html>
+@endsection

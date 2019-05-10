@@ -15,7 +15,7 @@ class BoardController extends Controller
      */
     public function index(Request $request,$id)
     {
-        if ($request->input('password') !== Room::find($id)->password) {
+        if ($request->input('password') !== decrypt(Room::find($id)->password)) {
           die("パスワードが間違っています");
         }
         return view('board.index', ["room" => Room::find($id), "boards" => Board::where('room_id',$id)->get(), 'id' => 0]);
