@@ -39,9 +39,12 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
+      $validated = $request->validate([
+        'message' => 'required'
+      ]);
       $board = new Board;
       // 太という文字で囲まれているものは太字にする
-      $board->message = preg_replace('|(太)(.*)(太)|','<b>$2</b>',htmlentities($request->input('message')));
+      $board->message = preg_replace('|(太)(.*)(太)|','<b>$2</b>',htmlentities($validated['message']));
       $board->room_id = $request->input('id');
       $board->save();
       return view('board.index', ["room" => Room::find($board->room_id), "boards" => Board::where('room_id',$board->room_id)->get(), 'id' => 0]);
